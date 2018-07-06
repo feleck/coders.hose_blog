@@ -1,1 +1,9 @@
 %h1 Posts
+- @posts.each do |post|
+  %h3= post.title
+  %p Created #{time_ago_in_words(post.created_at)} ago.
+  %p= post.body.truncate(250)
+  - if post.body.length > 250
+    = link_to 'Show more', post, class: 'btn btn-sm'
+%p
+  = link_to 'New Post', '#', class: 'btn'
