@@ -4,4 +4,4 @@
 
 This is the simple blog application.
 Posts, comments, users.
-Hosted on [*Heroku*][http://heroku.com]
+Hosted on [*Heroku*](http://heroku.com)
