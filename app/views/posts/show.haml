@@ -2,4 +2,7 @@
 %p Created at #{@post.created_at}.
 %p= @post.body
 %p= link_to 'Edit post', edit_post_path, class: 'btns'
+%p= link_to 'Delete post', post_path(@post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 %p= link_to 'All posts', posts_path, class: 'btn'
