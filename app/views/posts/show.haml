@@ -1,4 +1,5 @@
 %h1= @post.title
 %p Created at #{@post.created_at}.
 %p= @post.body
+%p= link_to 'Edit post', edit_post_path, class: 'btns'
 %p= link_to 'All posts', posts_path, class: 'btn'
