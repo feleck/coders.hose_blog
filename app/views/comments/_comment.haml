@@ -1,6 +1,9 @@
 .comment
+
   - @post.comments.each do |comment|
-    %p
+    %hr
+    %p.text-justify
       = comment.body
-      by
-      = comment.author
+      %br
+
+      = comment.user.email

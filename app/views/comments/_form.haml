@@ -1,13 +1,6 @@
 .row
   .col-md-12
     = form_with(model: [ @post, @post.comments.build ], local: true) do |form|
-      -# - if @comment.errors.any?
-        .alert.alert-danger
-          %h3= "#{ pluralize(@post.comments.errors.count, 'error') } prohibited this post from being saved:"
-          %ul
-            - @post.comments.errors.full_messages.each do |msg|
-              %li= msg
-
       .form-group
-        = form.text_area :body, class: 'form-control', required: true, placeholder: 'Enter comment'
+        = form.text_area :body, class: 'form-control'#, required: true, placeholder: 'Enter comment'
       = form.submit class: 'btn btn-sm btn-secondary'

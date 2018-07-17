@@ -3,7 +3,7 @@
 .post_body
   %p.text-justify= @post.body
   .btn-group{ role: 'group', :aria-label => 'actions' }
-    - if signed_in?
+    - if signed_in? && current_user.admin?
       %p= link_to 'Edit post', edit_post_path, class: 'btn btn-sm btn-secondary'
       %p= link_to 'Delete post', post_path(@post),
         method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
