@@ -1,6 +1,6 @@
 .comment
   %br
-  - @post.comments.includes(:user).each do |comment|
+  - @comments.each do |comment|
     %hr
     %p.text-justify
       = comment.body
