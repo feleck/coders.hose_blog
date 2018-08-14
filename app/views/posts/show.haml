@@ -1,12 +1,15 @@
 %h1.cover-heading= @post.title
 %p.blockquote-footer Created at #{@post.created_at}.
-%p.text-justify= @post.body
-.btn-group{ role: 'group', :aria-label => 'actions' }
-  - if signed_in?
-    %p= link_to 'Edit post', edit_post_path, class: 'btn btn-sm btn-secondary'
-    %p= link_to 'Delete post', post_path(@post),
-      method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+.post_body
+  %p.text-justify= @post.body
+  .btn-group{ role: 'group', :aria-label => 'actions' }
+    - if signed_in? && current_user.admin?
+      %p= link_to 'Edit post', edit_post_path, class: 'btn btn-sm btn-secondary'
+      %p= link_to 'Delete post', post_path(@post),
+        method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 %h3 Comments
 = render 'comments/comment'
-%h3 Add new comment
-= render 'comments/form'
+- if signed_in?
+  %h3 Add new comment
+  .comment_form
+    = render 'comments/form'

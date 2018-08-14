@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %w[edit update destroy]
+  before_action :authenticate_user!, except: %w[index show]
 
   def index
     @posts = Post.all
@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.includes(:user)
   end
 
   def new
@@ -44,6 +45,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body).merge(user: current_user)
   end
 end

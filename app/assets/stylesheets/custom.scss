@@ -93,13 +93,17 @@ body {
   text-decoration: none;
   border-bottom-color: rgba(220, 220, 2220, .25);
 }
-// .post-body {
-//   text-align: justify;
-// }
+.post_body {
+  margin-bottom: 3rem;
+}
 
 .btn-group p{
   padding: 5px;
 }
+.comment, .comment_form {
+  margin-bottom: 2rem;
+}
+
 /* Footer */
 .mastfoot {
   color: rgba(250, 250, 250, .5);
